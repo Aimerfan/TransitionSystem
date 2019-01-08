@@ -8,23 +8,23 @@ import data.LenderData;
 public class Lender {
 
   private LenderData data;
-  private ArrayList<Book> books;
+  private ArrayList<Goods> goods;
 
-  public Lender(LenderData data, ArrayList<Book> books) {
+  public Lender(LenderData data, ArrayList<Goods> goods) {
     setData(data);
-    setBooks(books);
+    setGoods(this.goods);
   }
 
-  public ArrayList<Book> getBooks() {
-    return books;
+  public ArrayList<Goods> getGoods() {
+    return this.goods;
   }
 
-  public void setBooks(ArrayList<Book> books) {
-    this.books = books;
+  public void setGoods(ArrayList<Goods> goods) {
+    this.goods = goods;
   }
 
   public LenderData getData() {
-    return data;
+    return this.data;
   }
 
   public void setData(LenderData data) {
@@ -33,11 +33,11 @@ public class Lender {
 
   public String toString() {
     StringBuilder s = new StringBuilder();
-    for (Book b : books) {
+    for (Goods b : this.goods) {
       s.append("\n");
       s.append(b.toString());
     }
-    return data.toString() + "\nbooks: " + s.toString();
+    return data.toString() + "\nGoods: " + s.toString();
   }
 
 }

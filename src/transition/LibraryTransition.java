@@ -2,11 +2,8 @@ package transition;
 
 import java.util.ArrayList;
 
-import data.Book;
-import data.BorrowerData;
-import data.LenderData;
-import model.Borrower;
-import model.Lender;
+import data.*;
+import model.*;
 
 public class LibraryTransition extends Transition {
 
@@ -19,7 +16,7 @@ public class LibraryTransition extends Transition {
   	bowrdata.add(new Borrower(new BorrowerData("John", "L123456789")));
   	bowrdata.add(new Borrower(new BorrowerData("Nicky", "N987654321")));
 	
-	ArrayList<Book> books = new ArrayList<Book> ();
+	ArrayList<Goods> books = new ArrayList<Goods> ();
 	books.add(new Book("可怕的家伙","恐懼"));
 	books.add(new Book("開心的家園","開勳"));
 	
