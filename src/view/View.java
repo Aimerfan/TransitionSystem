@@ -208,7 +208,7 @@ public class View{
   }
 
   public void dead() {
-
+	System.out.println("Failed!");
   }
 
 }
