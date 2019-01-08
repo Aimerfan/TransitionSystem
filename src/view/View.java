@@ -204,7 +204,7 @@ public class View{
   }
 
   public void finishView() {
-
+	  
   }
 
   public void dead() {
