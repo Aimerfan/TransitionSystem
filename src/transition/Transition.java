@@ -1,5 +1,6 @@
 package transition;
 
+import data.*;
 import view.View;
 import model.*;
 import java.util.*;
@@ -8,7 +9,7 @@ import java.util.*;
  * 
  */
 
-public abstract class Transition extends Observable{
+public abstract class Transition {
 	
 	private View window;
 	private Borrower borrower;
@@ -21,7 +22,8 @@ public abstract class Transition extends Observable{
     }
     
     public void flow() {
-    	certification();
+    	String[] cert = window.certificationView();
+    	certification(new Borrower(new BorrowerData(cert[0], cert[1])));
     	while(true) {
     		// rent();
     		break;
@@ -30,8 +32,8 @@ public abstract class Transition extends Observable{
     	finish();
     }
     
-    protected boolean certification() {
-    	return true;
+    protected boolean certification(Borrower b) {
+    	return this.equals(b);
     }
     
     protected boolean rent(Goods subject) {
