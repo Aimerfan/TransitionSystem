@@ -34,9 +34,10 @@ public class View{
 
   public static void main(String[] args) {
 	  View v = new View();
-	  
-	  
-	  v.dead();
+	  Book [] books = {new Book("可怕的家锪","恐懼"),new Book("開心的家園","開勳")};
+	  ArrayList<Goods> arrayBooks = new ArrayList<Goods>();
+	  for(Book b: books) arrayBooks.add(b);
+	  System.out.println(v.rentView(arrayBooks).toString());
   }
 
   public  String[] certificationView() {
@@ -105,7 +106,7 @@ public class View{
     return str;
   }
 
-  public String rentView(ArrayList<Goods> items) {
+  public Goods rentView(ArrayList<Goods> items) {
 
     goods = new JFrame("Choose goods");
     
@@ -118,15 +119,21 @@ public class View{
     	a.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
   	    	  goodName = a.getText();
-  	    	  System.out.println(goodName);
   	    }
      	});
     	goods.add(a);
     }
     goods.setVisible(true);
     
+    Goods good = null ;
     while(true) {
     	if(!goodName.equals("")) {
+    		for(Goods i:items) {
+    			if(i.toString().equals(goodName)) {
+    				good=i;
+    				break;
+    			}
+    		}
     		break;
     	}
     	try {
@@ -136,7 +143,7 @@ public class View{
 		}
     }
     
-    return goodName;
+    return good;
   }
 
   public boolean confirmationView(String Name) {
