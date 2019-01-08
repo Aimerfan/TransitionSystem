@@ -2,11 +2,14 @@ package data;
 
 import model.Goods;
 
-public class Book implements Goods{
+public class Book extends Goods{
+	
+	private int status;
 	private String name;
 	private String type;
 	
 	public Book(String name, String type) {
+		super();
 		setName(name);
 		setType(type);
 	}
