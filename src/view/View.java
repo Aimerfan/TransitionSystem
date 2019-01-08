@@ -226,7 +226,11 @@ public class View {
 
     finish.add(south, BorderLayout.SOUTH);
     finish.setVisible(true);
-
+    south.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			System.exit(0);
+	    }
+   	});
   }
 
   public void dead() {
