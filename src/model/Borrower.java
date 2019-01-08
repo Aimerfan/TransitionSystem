@@ -7,6 +7,7 @@ import data.BorrowerData;
 /**
  * 
  */
+
 public class Borrower {
 	
 	private BorrowerData data;
@@ -24,5 +25,9 @@ public class Borrower {
 	
 	public boolean equals (Borrower borrower) {
 		return data.equals(borrower.data);
+	}
+	
+	public String toString() {
+		return data.toString();
 	}
 }

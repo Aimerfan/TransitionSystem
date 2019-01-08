@@ -1,7 +1,7 @@
 package data;
 
 public class BorrowerData {
-	private String Name;
+	private String name;
 	private String id;
 	
 	public BorrowerData(String name, String id) {
@@ -10,12 +10,12 @@ public class BorrowerData {
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 
@@ -25,12 +25,17 @@ public class BorrowerData {
 
 
 	public void setId(String id) {
-		id = id;
+		this.id = id;
 	}
 	
-//	public boolean equals(BorrowerData data) {
-//		data.id.equals(id);
-//	}
+	public boolean equals(BorrowerData data) {
+		return id.equals(data.id) && name.equals(data.name);
+	}
+	
+	public String toString() {
+		
+		return "Name: "+ this.name +", id:" + this.id;
+	}
 	
 	
 }

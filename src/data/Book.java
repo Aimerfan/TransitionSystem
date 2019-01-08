@@ -1,6 +1,8 @@
 package data;
 
-public class Book {
+import model.Goods;
+
+public class Book implements Goods{
 	private String name;
 	private String type;
 	
@@ -22,5 +24,9 @@ public class Book {
 		this.type = type;
 	}
 	
+	public String toString() {
+		return "Name: "+ name +" Type: "+type;
+		
+	}
 	
 }
