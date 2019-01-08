@@ -20,12 +20,16 @@ public class View implements Observer {
   JFrame frame;
   JFrame goods;
   JFrame comfirm;
+  
+  String user;
+  String paw;
 
   public static void main(String[] args) {
-	  
+	  View v = new View();
+	  System.out.print(v.certificationView()[0]);
   }
 
-  private void certificationView() {
+  private String[] certificationView() {
     frame = new JFrame("User Login");
 
     frame.setSize(350, 200);
@@ -70,11 +74,19 @@ public class View implements Observer {
 
     frame.setVisible(true);
     loginButton.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        frame.remove(frame);
-        ;
-      }
+		public void actionPerformed(ActionEvent e) {
+	    	  user = userText.getText();
+	    	  paw = passwordText.getText();
+	    	  System.out.print(user);
+	    }
     });
+    while(user==null || paw==null) {
+    	System.out.print(user);
+    	
+    }
+    String [] str = {user, paw};
+    System.out.print("dsa");
+    return str;
   }
 
   private void rentView() {
@@ -151,8 +163,6 @@ public class View implements Observer {
 
   @Override
   public void update(Observable o, Object arg) {
-    // TODO Auto-generated method stub
-
   }
 
 }
