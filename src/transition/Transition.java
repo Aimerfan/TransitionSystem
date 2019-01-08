@@ -23,17 +23,21 @@ public abstract class Transition {
     
     public void flow() {
     	String[] cert = window.certificationView();
-    	certification(new Borrower(new BorrowerData(cert[0], cert[1])));
-    	while(true) {
+    	if(!certification(new Borrower(new BorrowerData(cert[0], cert[1])))) {
+    		window.dead();
+    		return;
+    	}
+    	System.out.println("login successes.");
+    	/*while(true) {
     		// rent();
     		break;
     	}
     	confirmation();
-    	finish();
+    	finish();*/
     }
     
     protected boolean certification(Borrower b) {
-    	return this.equals(b);
+    	return this.borrower.equals(b);
     }
     
     protected boolean rent(Goods subject) {

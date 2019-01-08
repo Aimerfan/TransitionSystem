@@ -26,6 +26,8 @@ public class LibraryTransition extends Transition {
 	Lender lender = new Lender(new LenderData("John", "L123456789"), books);
 	Borrower borrower = bowrdata.get(0);
 	LibraryTransition t = new LibraryTransition(lender, borrower);
+	
+	t.flow();
   }
 
 }
