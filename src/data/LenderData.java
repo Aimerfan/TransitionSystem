@@ -2,8 +2,8 @@ package data;
 
 public class LenderData {
 
-	private String Name;
-	private String Id;
+	private String name;
+	private String id;
 	
 	public LenderData(String name, String id) {
 		setName(name);
@@ -11,22 +11,26 @@ public class LenderData {
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 
 	public String getId() {
-		return Id;
+		return id;
 	}
 
 
 	public void setId(String id) {
-		Id = id;
+		this.id = id;
+	}
+	
+	public String toString() {
+		return "Name: "+name+", Id: "+ id;
 	}
 
 

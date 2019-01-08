@@ -22,5 +22,9 @@ public class Book {
 		this.type = type;
 	}
 	
+	public String toString() {
+		return "Name: "+ name +" Type: "+type;
+		
+	}
 	
 }

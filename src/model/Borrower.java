@@ -24,4 +24,8 @@ public class Borrower implements Goods{
 	public boolean equals (Borrower borrower) {
 		return data.equals(borrower.data);
 	}
+	
+	public String toString() {
+		return data.toString();
+	}
 }
