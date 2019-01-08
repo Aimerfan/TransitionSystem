@@ -25,18 +25,20 @@ public abstract class Transition {
     	String[] cert = window.certificationView();
     	if(!certification(new Borrower(new BorrowerData(cert[0], cert[1])))) {
     		window.dead();
-    		return;
     	}
     	System.out.println("login successes.");
     	
     	Goods rent = window.rentView(this.lender.getGoods());
     	if(!this.rent(rent)) {
     		window.dead();
-    		return;
     	}
     	System.out.println("rent successes.");
     	
-    	// confirmation();
+    	if(!this.confirmation(rent)) {
+    		window.dead();
+    	}
+    	System.out.println("rent confirm.");
+    	
     	finish();
     }
     
@@ -54,8 +56,8 @@ public abstract class Transition {
     	}
     }
     
-    protected void confirmation() {
-    	
+    protected boolean confirmation(Goods rent) {
+    	return this.window.confirmationView(rent.getName());
     }
     
     protected void finish() {
