@@ -61,7 +61,7 @@ public abstract class Transition {
     }
     
     protected void finish() {
-    	
+    	window.finishView();
     }
 
 }
