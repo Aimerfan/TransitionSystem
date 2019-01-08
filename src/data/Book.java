@@ -4,7 +4,6 @@ import model.Goods;
 
 public class Book extends Goods{
 	
-	private int status;
 	private String name;
 	private String type;
 	
@@ -28,7 +27,7 @@ public class Book extends Goods{
 	}
 	
 	public String toString() {
-		return "Name: "+ name +" Type: "+type;
+		return "Name: " + name + " Type: " + type;
 		
 	}
 	
