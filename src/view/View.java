@@ -215,7 +215,25 @@ public class View {
   }
 
   public void dead() {
+	  JFrame error = new JFrame("Comfirm");
 
+	    // 初始化一个文字区域
+	  JLabel label = new JLabel("Failed");
+	  label.setHorizontalAlignment(JLabel.CENTER);
+	  label.setVerticalAlignment(JLabel.CENTER);
+	  error.add(label, BorderLayout.CENTER);
+	  JButton button = new JButton();
+	  
+	  button.setText("OK");
+	  button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+		    }
+	   	});
+	  error.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	  error.setSize(350, 200);
+	  error.add(button,BorderLayout.SOUTH);
+	  error.setVisible(true);
   }
-
+  
 }
