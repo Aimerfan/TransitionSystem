@@ -2,7 +2,7 @@ package data;
 
 public class BorrowerData {
 	private String Name;
-	private String Id;
+	private String id;
 	
 	public BorrowerData(String name, String id) {
 		setName(name);
@@ -20,15 +20,17 @@ public class BorrowerData {
 
 
 	public String getId() {
-		return Id;
+		return id;
 	}
 
 
 	public void setId(String id) {
-		Id = id;
+		id = id;
 	}
-
-
+	
+//	public boolean equals(BorrowerData data) {
+//		data.id.equals(id);
+//	}
 	
 	
 }
