@@ -23,7 +23,7 @@ public abstract class Transition extends Observable{
     public void flow() {
     	certification();
     	while(true) {
-    		rent(new Goods());
+    		// rent();
     		break;
     	}
     	confirmation();
