@@ -16,7 +16,7 @@ public class LibraryTransition extends Transition {
   	bowrdata.add(new Borrower(new BorrowerData("John", "L123456789")));
   	bowrdata.add(new Borrower(new BorrowerData("Nicky", "N987654321")));
 	
-	ArrayList<Goods> books = new ArrayList<Goods> ();
+	ArrayList<Goods> books = new ArrayList<Goods>();
 	books.add(new Book("可怕的家伙","恐懼"));
 	books.add(new Book("開心的家園","開勳"));
 	
