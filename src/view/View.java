@@ -14,9 +14,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-/**
- * 
- */
 public class View implements Observer {
 
   public static void main(String[] args) {
@@ -35,7 +32,6 @@ public class View implements Observer {
     choose.setSize(350, 200);
     choose.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     choose.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER));
-
     choose.getContentPane().setLayout(new GridLayout(1, 2));
 
     JButton a = new JButton("機車租賃");
