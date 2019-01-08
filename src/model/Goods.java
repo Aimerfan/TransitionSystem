@@ -19,6 +19,10 @@ public class Goods {
   public void setStatus(int status) {
     this.status = status;
   }
+  
+  public int getStatus() {
+    return this.status;
+  }
 
   public String getName() {
     return name;
@@ -38,7 +42,6 @@ public class Goods {
 
   public String toString() {
     return "Name: " + name + " Type: " + type;
-
   }
 
 }

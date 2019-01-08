@@ -193,8 +193,8 @@ public class View {
     finish.add(label);
 
     JButton south = new JButton("離開");
-    finish.add(south, BorderLayout.SOUTH);
 
+    finish.add(south, BorderLayout.SOUTH);
     finish.setVisible(true);
 
   }
