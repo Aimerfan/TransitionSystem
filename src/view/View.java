@@ -21,12 +21,12 @@ public class View implements Observer {
   JFrame goods;
   JFrame comfirm;
   
-  String user;
-  String paw;
+  String user="";
+  String paw="";
 
   public static void main(String[] args) {
 	  View v = new View();
-	  System.out.print(v.certificationView()[0]);
+
   }
 
   private String[] certificationView() {
@@ -77,15 +77,16 @@ public class View implements Observer {
 		public void actionPerformed(ActionEvent e) {
 	    	  user = userText.getText();
 	    	  paw = passwordText.getText();
-	    	  System.out.print(user);
 	    }
     });
-    while(user==null || paw==null) {
-    	System.out.print(user);
-    	
+    
+    
+    while(true) {
+    	if(!user.equals("") && !paw.equals("")) {
+    		break;
+    	}
     }
     String [] str = {user, paw};
-    System.out.print("dsa");
     return str;
   }
 
