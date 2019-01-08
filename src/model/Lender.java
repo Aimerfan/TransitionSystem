@@ -6,7 +6,7 @@ import data.LenderData;
 import data.Book;
 
 
-public class Lender implements Goods{
+public class Lender {
 
 	private LenderData data;
 	private ArrayList<Book> books;

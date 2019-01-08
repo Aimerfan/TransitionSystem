@@ -7,7 +7,8 @@ import data.BorrowerData;
 /**
  * 
  */
-public class Borrower implements Goods{
+public class Borrower {
+	
 	private BorrowerData data;
     
 	public BorrowerData getData() {
