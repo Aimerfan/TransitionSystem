@@ -2,20 +2,22 @@ package model;
 
 import java.util.*;
 
+import data.BorrowerData;
+
 /**
  * 
  */
 public class Borrower {
-	private Data data;
+	private BorrowerData data;
     
-	public Data getData() {
+	public BorrowerData getData() {
 		return data;
 	}
-	public void setData(Data data) {
+	public void setData(BorrowerData data) {
 		this.data = data;
 	}
 
-	public Borrower(Data data) {
+	public Borrower(BorrowerData data) {
 		setData(data);
     }
 

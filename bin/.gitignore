@@ -1,10 +1,4 @@
-/Borrower.class
-/Controller.class
-/Data.class
-/LibraryTrasition.class
-/Transition.class
-/VehichesTarsition.class
-/View.class
-/transition/
 /model/
+/transition/
 /view/
+/data/
