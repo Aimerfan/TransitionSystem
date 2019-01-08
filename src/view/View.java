@@ -34,6 +34,7 @@ public class View {
 
   public static void main(String[] args) {
 	  View v = new View();
+
 	  Book [] books = {new Book("可怕的家锪","恐懼"),new Book("開心的家園","開勳")};
 	  ArrayList<Goods> arrayBooks = new ArrayList<Goods>();
 	  for(Book b: books) arrayBooks.add(b);
@@ -223,7 +224,11 @@ public class View {
     finish.add(label);
 
     JButton south = new JButton("離開");
-
+    south.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+		    }
+	   	});
     finish.add(south, BorderLayout.SOUTH);
     finish.setVisible(true);
 
