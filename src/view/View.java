@@ -4,8 +4,10 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,17 +17,28 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class View implements Observer {
+import data.Book;
+import model.Goods;
+
+public class View{
 
   JFrame frame;
   JFrame goods;
-  JFrame comfirm;
+  JFrame confirm;
+  
+  String user="";
+  String paw="";
+  String goodName="";
+  boolean isConfirm=false;
 
   public static void main(String[] args) {
+	  View v = new View();
 	  
+	  
+	  System.out.println(v.confirmationView("sss"));
   }
 
-  private void certificationView() {
+  public  String[] certificationView() {
     frame = new JFrame("User Login");
 
     frame.setSize(350, 200);
@@ -70,43 +83,67 @@ public class View implements Observer {
 
     frame.setVisible(true);
     loginButton.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        frame.remove(frame);
-        ;
-      }
+		public void actionPerformed(ActionEvent e) {
+	    	  user = userText.getText();
+	    	  paw = passwordText.getText();
+	    }
     });
+    
+    
+    while(true) {
+    	if(!user.equals("") && !paw.equals("")) {
+    		break;
+    	}
+    	try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+    }
+    String [] str = {user, paw};
+    return str;
   }
 
-  private void rentView() {
+  public String rentView(ArrayList<Goods> items) {
 
     goods = new JFrame("Choose goods");
-
+    
     goods.setSize(350, 200);
     goods.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     goods.getContentPane().setLayout(new FlowLayout(FlowLayout.LEFT));
-
-    JButton a = new JButton("一笙有喜");
-    JButton b = new JButton("偷走他的心");
-    JButton c = new JButton("軟體工程導論");
-    JButton d = new JButton("神鵰俠侶");
-    JButton e = new JButton("賈伯斯傳");
-
-    goods.add(a);
-    goods.add(b);
-    goods.add(c);
-    goods.add(d);
-    goods.add(e);
-
+    
+    for (Goods i: items) {
+    	JButton a = new JButton(i.toString());
+    	a.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) {
+  	    	  goodName = a.getText();
+  	    	  System.out.println(goodName);
+  	    }
+     	});
+    	goods.add(a);
+    }
     goods.setVisible(true);
-
+    
+    while(true) {
+    	if(!goodName.equals("")) {
+    		break;
+    	}
+    	try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+    }
+    
+    return goodName;
   }
 
-  private void confirmationView() {
+  public boolean confirmationView(String Name) {
     // 初始化一个jframe
-    comfirm = new JFrame("Comfirm");
+    confirm = new JFrame("Comfirm");
 
     // 初始化一个文字区域
-    JTextArea textarea = new JTextArea("租借資訊");
+    JTextArea textarea = new JTextArea(Name);
 
     // 初始化一个jlable
     JLabel emptyLable = new JLabel("產品資訊寫這邊");
@@ -115,43 +152,62 @@ public class View implements Observer {
     JPanel panel = new JPanel();
 
     // 初始化一个容器
-    Container container = comfirm.getContentPane();
+    Container container = confirm.getContentPane();
 
     // 初始化一个按钮
     JButton startAutoGen = new JButton("確認資料");
+    
 
     // 设置布局
-    container.setLayout(new FlowLayout());
-
+    startAutoGen.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+	    	  isConfirm = true;
+	    	  goodName = Name;
+	    	  System.out.println(goodName);
+	    }
+   	});
+  
     // 把按钮添加到pannel
     panel.add(textarea);
     panel.add(emptyLable);
     panel.add(startAutoGen);
+    
 
     // 设置关闭方式
-    comfirm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    confirm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     // 把panel添加到容器
     container.add(panel);
 
     // 设置大小
-    comfirm.setSize(350, 200);
+    confirm.setSize(350, 200);
 
     // 设置可见性
-    comfirm.setVisible(true);
+    confirm.setVisible(true);
+    
+    while(true) {
+    	if(isConfirm && !goodName.equals("")) {
+    		confirm.setVisible(false);
+    		confirm.dispose();
+    		System.out.println("4564");
+    		break;
+    	}
+    	
+    	try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+    	
+    }
+    return true;
   }
 
-  private void finishView() {
+  public void finishView() {
 
   }
 
-  private void dead() {
-
-  }
-
-  @Override
-  public void update(Observable o, Object arg) {
-    // TODO Auto-generated method stub
+  public void dead() {
 
   }
 
