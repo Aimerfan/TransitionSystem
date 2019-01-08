@@ -224,6 +224,7 @@ public class View{
 	  label.setVerticalAlignment(JLabel.CENTER);
 	  error.add(label, BorderLayout.CENTER);
 	  JButton button = new JButton();
+	  
 	  button.setText("OK");
 	  button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
