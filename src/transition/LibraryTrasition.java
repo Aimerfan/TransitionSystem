@@ -2,32 +2,15 @@ package transition;
 
 import java.util.*;
 
+import model.*;
+
 /**
  * 
  */
 public class LibraryTrasition extends Transition {
-
-
-    public LibraryTrasition() {
+	
+    public LibraryTrasition(Lender l, Borrower b) {
+    	super(l, b);
     }
-
-    protected void certification() {
-    	do {
-    		
-    	}while(true);
-    }
-
-
-    protected void rent() {
-    }
-
     
-    protected void confirmation() {
-    }
-
-   
-    protected void finish() {
-
-    }
-
 }

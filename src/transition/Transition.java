@@ -1,41 +1,43 @@
 package transition;
 
+import model.*;
 import java.util.*;
-
-import model.Borrower;
 
 /**
  * 
  */
 public abstract class Transition extends Observable{
+	
+	private Borrower borrower;
+	private Lender lender;
 
-    public Transition() {
+    public Transition(Lender l, Borrower b) {
+    	this.lender = l;
+    	this.borrower = b;
     }
-
-    private Borrower data;
-    protected void certification() {
-    	
-    }
-
-   
-    protected void rent() {
-    	
-    }
-
-   
-    protected void confirmation() {
-
-    }
-
-    protected void finish() {
-    }
-
     
     public void flow() {
-    	certification();
-    	rent();
+    	//certification();
+    	//rent();
     	confirmation();
     	finish();
+    }
+    
+    protected boolean certification(Borrower b) {
+    	return true;
+    }
+    
+    protected boolean rent(Goods subject) {
+    	
+    	return true;
+    }
+    
+    protected void confirmation() {
+    	
+    }
+    
+    protected void finish() {
+    	
     }
 
 }

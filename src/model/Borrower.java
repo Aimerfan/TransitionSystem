@@ -7,7 +7,9 @@ import data.BorrowerData;
 /**
  * 
  */
-public class Borrower{
+
+public class Borrower {
+	
 	private BorrowerData data;
     
 	public BorrowerData getData() {

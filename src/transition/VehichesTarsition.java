@@ -2,32 +2,15 @@ package transition;
 
 import java.util.*;
 
+import model.*;
+
 /**
  * 
  */
 public class VehichesTarsition extends Transition {
-
-
-    public VehichesTarsition() {
+	
+    public VehichesTarsition(Lender l, Borrower b) {
+    	super(l, b);
     }
-
- 
-    protected void certification() {
-  
-    }
-
-  
-    protected void rent() {
-
-    }
-
-  
-    protected void confirmation() {
     
-    }
-
-    protected void finish() {
-
-    }
-
 }

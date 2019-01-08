@@ -1,5 +1,19 @@
 package model;
 
-public interface Goods {
+public class Goods {
+	
+	public static final int AVAILABLE = 0;
+	public static final int BORROWED = 1;
+	public static final int UNAVAILABLE = 2;
+	
+	private int status;
+	
+	public Goods(){
+		this.status = 0;
+	}
+	
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	
 }
