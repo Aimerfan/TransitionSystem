@@ -7,7 +7,7 @@ import data.BorrowerData;
 /**
  * 
  */
-public class Borrower {
+public class Borrower implements Goods{
 	private BorrowerData data;
     
 	public BorrowerData getData() {
@@ -20,5 +20,8 @@ public class Borrower {
 	public Borrower(BorrowerData data) {
 		setData(data);
     }
-
+	
+	public boolean equals (Borrower borrower) {
+		return data.equals(borrower.data);
+	}
 }

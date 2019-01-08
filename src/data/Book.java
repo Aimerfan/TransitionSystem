@@ -4,6 +4,10 @@ public class Book {
 	private String name;
 	private String type;
 	
+	public Book(String name, String type) {
+		setName(name);
+		setType(type);
+	}
 	
 	public String getName() {
 		return name;
@@ -17,5 +21,6 @@ public class Book {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
 	
 }

@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.Observable;
@@ -10,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -19,45 +21,41 @@ public class View implements Observer {
 
   public static void main(String[] args) {
 
-    JFrame frame = new JFrame("TransitionSystem");
-
-    frame.setSize(350, 200);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-    JPanel panel = new JPanel();
-
-    frame.add(panel);
-
     view1();
-    view2(panel);
+    view2();
+    view3();
+    view4();
 
-    frame.setVisible(true);
   }
 
   private static void view1() {
 
-    JFrame frame = new JFrame("TransitionSystem");
+    JFrame choose = new JFrame("Choose Transition System");
 
-    frame.setSize(350, 200);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER));
+    choose.setSize(350, 200);
+    choose.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    choose.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER));
 
-    frame.getContentPane().setLayout(new GridLayout(1, 2));
+    choose.getContentPane().setLayout(new GridLayout(1, 2));
 
     JButton a = new JButton("機車租賃");
     JButton b = new JButton("圖書租借");
 
-    frame.add(a);
-    frame.add(b);
+    choose.add(a);
+    choose.add(b);
 
-    frame.setVisible(true);
+    choose.setVisible(true);
 
   }
 
-  private static void view2(JPanel panel) {
-    /*
-     * 布局部分我们这边不多做介绍 这边设置布局为 null
-     */
+  private static void view2() {
+    JFrame frame = new JFrame("User Login");
+
+    frame.setSize(350, 200);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    JPanel panel = new JPanel();
+    frame.add(panel);
+
     panel.setLayout(null);
 
     // 创建 JLabel
@@ -93,9 +91,71 @@ public class View implements Observer {
     loginButton.setBounds(10, 80, 80, 25);
     panel.add(loginButton);
 
+    frame.setVisible(true);
   }
 
   private static void view3() {
+
+    JFrame goods = new JFrame("Choose goods");
+
+    goods.setSize(350, 200);
+    goods.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    goods.getContentPane().setLayout(new FlowLayout(FlowLayout.LEFT));
+
+    JButton a = new JButton("一笙有喜");
+    JButton b = new JButton("偷走他的心");
+    JButton c = new JButton("軟體工程導論");
+    JButton d = new JButton("神鵰俠侶");
+    JButton e = new JButton("賈伯斯傳");
+
+    goods.add(a);
+    goods.add(b);
+    goods.add(c);
+    goods.add(d);
+    goods.add(e);
+
+    goods.setVisible(true);
+
+  }
+
+  private static void view4() {
+    // 初始化一个jframe
+    JFrame comfirm = new JFrame("Comfirm");
+
+    // 初始化一个文字区域
+    JTextArea textarea = new JTextArea("租借資訊");
+
+    // 初始化一个jlable
+    JLabel emptyLable = new JLabel("產品資訊寫這邊");
+
+    // 初始化一个panel
+    JPanel panel = new JPanel();
+
+    // 初始化一个容器
+    Container container = comfirm.getContentPane();
+
+    // 初始化一个按钮
+    JButton startAutoGen = new JButton("確認資料");
+
+    // 设置布局
+    container.setLayout(new FlowLayout());
+
+    // 把按钮添加到pannel
+    panel.add(textarea);
+    panel.add(emptyLable);
+    panel.add(startAutoGen);
+
+    // 设置关闭方式
+    comfirm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    // 把panel添加到容器
+    container.add(panel);
+
+    // 设置大小
+    comfirm.setSize(350, 200);
+
+    // 设置可见性
+    comfirm.setVisible(true);
   }
 
   public void display() {

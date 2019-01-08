@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//src/view/View.java=UTF-8
+=======
+encoding//src/demo/Demo.java=UTF-8
+>>>>>>> origin/model

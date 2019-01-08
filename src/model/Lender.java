@@ -6,7 +6,7 @@ import data.LenderData;
 import data.Book;
 
 
-public class Lender {
+public class Lender implements Goods{
 
 	private LenderData data;
 	private ArrayList<Book> books;
@@ -18,7 +18,7 @@ public class Lender {
 		this.data = data;
 	}
 
-	public Lender(LenderData data) {
+	public Lender(LenderData data, ArrayList<Book> books) {
 		setData(data);
     }
 
