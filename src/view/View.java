@@ -2,7 +2,8 @@ package view;
 
 import java.awt.Container;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -16,36 +17,18 @@ import javax.swing.JTextField;
 
 public class View implements Observer {
 
+  static JFrame frame;
+  static JFrame goods;
+  static JFrame comfirm;
+
   public static void main(String[] args) {
 
-    view1();
-    view2();
-    view3();
-    view4();
+    certificationView();
 
   }
 
-  private static void view1() {
-
-    JFrame choose = new JFrame("Choose Transition System");
-
-    choose.setSize(350, 200);
-    choose.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    choose.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER));
-    choose.getContentPane().setLayout(new GridLayout(1, 2));
-
-    JButton a = new JButton("機車租賃");
-    JButton b = new JButton("圖書租借");
-
-    choose.add(a);
-    choose.add(b);
-
-    choose.setVisible(true);
-
-  }
-
-  private static void view2() {
-    JFrame frame = new JFrame("User Login");
+  private static void certificationView() {
+    frame = new JFrame("User Login");
 
     frame.setSize(350, 200);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,11 +71,17 @@ public class View implements Observer {
     panel.add(loginButton);
 
     frame.setVisible(true);
+    loginButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        frame.remove(frame);
+        ;
+      }
+    });
   }
 
-  private static void view3() {
+  private static void rentView() {
 
-    JFrame goods = new JFrame("Choose goods");
+    goods = new JFrame("Choose goods");
 
     goods.setSize(350, 200);
     goods.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -114,9 +103,9 @@ public class View implements Observer {
 
   }
 
-  private static void view4() {
+  private static void confirmationView() {
     // 初始化一个jframe
-    JFrame comfirm = new JFrame("Comfirm");
+    comfirm = new JFrame("Comfirm");
 
     // 初始化一个文字区域
     JTextArea textarea = new JTextArea("租借資訊");
@@ -154,7 +143,11 @@ public class View implements Observer {
     comfirm.setVisible(true);
   }
 
-  public void display() {
+  private static void finishView() {
+
+  }
+
+  private static void dead() {
 
   }
 
