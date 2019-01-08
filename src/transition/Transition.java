@@ -11,9 +11,9 @@ import java.util.*;
 
 public abstract class Transition {
 	
-	private View window;
-	private Borrower borrower;
-	private Lender lender;
+	protected View window;
+	protected Borrower borrower;
+	protected Lender lender;
 
     public Transition(Lender l, Borrower b) {
     	this.lender = l;
@@ -21,7 +21,7 @@ public abstract class Transition {
     	this.window = new View();
     }
     
-    public void flow() {
+    public final void flow() {
     	String[] cert = window.certificationView();
     	if(!certification(new Borrower(new BorrowerData(cert[0], cert[1])))) {
     		window.dead();
@@ -42,26 +42,9 @@ public abstract class Transition {
     	finish();
     }
     
-    protected boolean certification(Borrower b) {
-    	return this.borrower.equals(b);
-    }
-    
-    protected boolean rent(Goods subject) {
-    	if(subject.getStatus() == Goods.AVAILABLE) {
-    		subject.setStatus(Goods.BORROWED);
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
-    }
-    
-    protected boolean confirmation(Goods rent) {
-    	return this.window.confirmationView(rent.getName());
-    }
-    
-    protected void finish() {
-    	window.finishView();
-    }
+    protected abstract boolean certification(Borrower b);
+    protected abstract boolean rent(Goods subject);
+    protected abstract boolean confirmation(Goods rent);
+    protected abstract void finish();
 
 }
