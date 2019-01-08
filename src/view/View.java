@@ -25,6 +25,7 @@ public class View {
   JFrame goods;
   JFrame confirm;
   JFrame finish;
+  JFrame error ;
 
   String user = "";
   String paw = "";
@@ -94,6 +95,11 @@ public class View {
     while (true) {
       if (!user.equals("") && !paw.equals("")) {
         break;
+      }
+      try {
+			TimeUnit.SECONDS.sleep(1);
+      } catch (InterruptedException e1) {
+			e1.printStackTrace();
       }
     }
     String[] str = { user, paw };
@@ -188,10 +194,15 @@ public class View {
       if (isConfirm) {
         confirm.setVisible(false);
         confirm.dispose();
-        System.out.println("4564");
+        
         break;
       }
-      System.out.println("123131313");
+      try {
+			TimeUnit.SECONDS.sleep(1);
+      } catch (InterruptedException e1) {
+			e1.printStackTrace();
+      }
+      
     }
     return true;
   }
@@ -215,8 +226,7 @@ public class View {
   }
 
   public void dead() {
-	  JFrame error = new JFrame("Comfirm");
-
+	  error = new JFrame("Comfirm");
 	    // 初始化一个文字区域
 	  JLabel label = new JLabel("Failed");
 	  label.setHorizontalAlignment(JLabel.CENTER);
