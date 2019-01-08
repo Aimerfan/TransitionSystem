@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -35,7 +36,7 @@ public class View{
 	  View v = new View();
 	  
 	  
-	  System.out.println(v.confirmationView("sss"));
+	  v.dead();
   }
 
   public  String[] certificationView() {
@@ -208,7 +209,24 @@ public class View{
   }
 
   public void dead() {
-	System.out.println("Failed!");
+	  JFrame error = new JFrame("Comfirm");
+
+	    // 初始化一个文字区域
+	  JLabel label = new JLabel("Failed");
+	  label.setHorizontalAlignment(JLabel.CENTER);
+	  label.setVerticalAlignment(JLabel.CENTER);
+	  error.add(label, BorderLayout.CENTER);
+	  JButton button = new JButton();
+	  button.setText("OK");
+	  button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+		    }
+	   	});
+	  error.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	  error.setSize(350, 200);
+	  error.add(button,BorderLayout.SOUTH);
+	  error.setVisible(true);
   }
 
 }
