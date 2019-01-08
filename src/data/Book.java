@@ -1,6 +1,8 @@
 package data;
 
-public class Book {
+import model.Goods;
+
+public class Book implements Goods{
 	private String name;
 	private String type;
 	
