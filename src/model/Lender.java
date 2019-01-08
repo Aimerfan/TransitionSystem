@@ -12,7 +12,7 @@ public class Lender {
 
   public Lender(LenderData data, ArrayList<Goods> goods) {
     setData(data);
-    setGoods(this.goods);
+    setGoods(goods);
   }
 
   public ArrayList<Goods> getGoods() {

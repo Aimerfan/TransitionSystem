@@ -94,6 +94,8 @@ public class View {
 
     while (true) {
       if (!user.equals("") && !paw.equals("")) {
+    	  frame.setVisible(false);
+          frame.dispose();
         break;
       }
       try {
@@ -134,6 +136,8 @@ public class View {
     				break;
     			}
     		}
+    		goods.setVisible(false);
+            goods.dispose();
     		break;
     	}
     	try {

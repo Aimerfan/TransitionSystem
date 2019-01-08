@@ -36,7 +36,7 @@ public abstract class Transition {
     	}
     	System.out.println("rent successes.");
     	
-    	// confirmation();
+    	confirmation();
     	finish();
     }
     
