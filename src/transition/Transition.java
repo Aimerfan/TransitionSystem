@@ -28,12 +28,16 @@ public abstract class Transition {
     		return;
     	}
     	System.out.println("login successes.");
-    	/*while(true) {
-    		// rent();
-    		break;
+    	
+    	Goods rent = window.rentView(this.lender.getGoods());
+    	if(!this.rent(rent)) {
+    		window.dead();
+    		return;
     	}
-    	confirmation();
-    	finish();*/
+    	System.out.println("rent successes.");
+    	
+    	// confirmation();
+    	finish();
     }
     
     protected boolean certification(Borrower b) {
