@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import data.Book;
 import model.Goods;
 
-public class View implements Observer {
+public class View{
 
   JFrame frame;
   JFrame goods;
@@ -33,11 +33,11 @@ public class View implements Observer {
   public static void main(String[] args) {
 	  View v = new View();
 	  
-	  
-	  System.out.println(v.confirmationView("SSSS"));
+	  Boolean a =v.confirmationView("SSSS");
+	  System.out.println(a);
   }
 
-  private String[] certificationView() {
+  public  String[] certificationView() {
     frame = new JFrame("User Login");
 
     frame.setSize(350, 200);
@@ -98,7 +98,7 @@ public class View implements Observer {
     return str;
   }
 
-  private String rentView(ArrayList<Goods> items) {
+  public String rentView(ArrayList<Goods> items) {
 
     goods = new JFrame("Choose goods");
     
@@ -127,7 +127,7 @@ public class View implements Observer {
     return goodName;
   }
 
-  private boolean confirmationView(String Name) {
+  public boolean confirmationView(String Name) {
     // 初始化一个jframe
     confirm = new JFrame("Comfirm");
 
@@ -175,22 +175,22 @@ public class View implements Observer {
     
     while(true) {
     	if(isConfirm) {
+    		confirm.setVisible(false);
+    		confirm.dispose();
+    		System.out.println("4564");
     		break;
     	}
+    	System.out.println("123131313");
     }
     return true;
   }
 
-  private void finishView() {
+  public void finishView() {
 
   }
 
-  private void dead() {
+  public void dead() {
 
-  }
-
-  @Override
-  public void update(Observable o, Object arg) {
   }
 
 }
