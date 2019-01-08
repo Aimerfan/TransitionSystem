@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -33,8 +34,8 @@ public class View{
   public static void main(String[] args) {
 	  View v = new View();
 	  
-	  Boolean a =v.confirmationView("SSSS");
-	  System.out.println(a);
+	  
+	  System.out.println(v.confirmationView("sss"));
   }
 
   public  String[] certificationView() {
@@ -93,6 +94,11 @@ public class View{
     	if(!user.equals("") && !paw.equals("")) {
     		break;
     	}
+    	try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
     }
     String [] str = {user, paw};
     return str;
@@ -122,6 +128,11 @@ public class View{
     	if(!goodName.equals("")) {
     		break;
     	}
+    	try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
     }
     
     return goodName;
@@ -150,7 +161,8 @@ public class View{
     // 设置布局
     startAutoGen.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-	    	  isConfirm=true;
+	    	  isConfirm = true;
+	    	  goodName = Name;
 	    	  System.out.println(goodName);
 	    }
    	});
@@ -174,13 +186,19 @@ public class View{
     confirm.setVisible(true);
     
     while(true) {
-    	if(isConfirm) {
+    	if(isConfirm && !goodName.equals("")) {
     		confirm.setVisible(false);
     		confirm.dispose();
     		System.out.println("4564");
     		break;
     	}
-    	System.out.println("123131313");
+    	
+    	try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+    	
     }
     return true;
   }
