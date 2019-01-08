@@ -20,13 +20,13 @@ public class View implements Observer {
   JFrame frame;
   JFrame goods;
   JFrame comfirm;
-  
+
   String user;
   String paw;
 
   public static void main(String[] args) {
-	  View v = new View();
-	  System.out.print(v.certificationView()[0]);
+    View v = new View();
+    System.out.print(v.certificationView()[0]);
   }
 
   private String[] certificationView() {
@@ -73,19 +73,20 @@ public class View implements Observer {
     panel.add(loginButton);
 
     frame.setVisible(true);
+
     loginButton.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-	    	  user = userText.getText();
-	    	  paw = passwordText.getText();
-	    	  System.out.print(user);
-	    }
+
+      public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == loginButton) {
+          user = userText.getText();
+          paw = passwordText.getText();
+          System.out.print(user + paw);
+        }
+      }
     });
-    while(user==null || paw==null) {
-    	System.out.print(user);
-    	
-    }
-    String [] str = {user, paw};
-    System.out.print("dsa");
+
+    String[] str = { user, paw };
+    System.out.print("o66");
     return str;
   }
 
