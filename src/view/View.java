@@ -17,17 +17,15 @@ import javax.swing.JTextField;
 
 public class View implements Observer {
 
-  static JFrame frame;
-  static JFrame goods;
-  static JFrame comfirm;
+  JFrame frame;
+  JFrame goods;
+  JFrame comfirm;
 
   public static void main(String[] args) {
-
-    certificationView();
-
+	  
   }
 
-  private static void certificationView() {
+  private void certificationView() {
     frame = new JFrame("User Login");
 
     frame.setSize(350, 200);
@@ -79,7 +77,7 @@ public class View implements Observer {
     });
   }
 
-  private static void rentView() {
+  private void rentView() {
 
     goods = new JFrame("Choose goods");
 
@@ -103,7 +101,7 @@ public class View implements Observer {
 
   }
 
-  private static void confirmationView() {
+  private void confirmationView() {
     // 初始化一个jframe
     comfirm = new JFrame("Comfirm");
 
@@ -143,11 +141,11 @@ public class View implements Observer {
     comfirm.setVisible(true);
   }
 
-  private static void finishView() {
+  private void finishView() {
 
   }
 
-  private static void dead() {
+  private void dead() {
 
   }
 
