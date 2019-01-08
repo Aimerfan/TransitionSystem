@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,7 +16,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import model.Goods;
+import model.*;
+import data.*;
 
 public class View {
 
@@ -30,9 +32,11 @@ public class View {
   boolean isConfirm = false;
 
   public static void main(String[] args) {
-    View v = new View();
-
-    v.finishView();
+	  View v = new View();
+	  Book [] books = {new Book("可怕的家锪","恐懼"),new Book("開心的家園","開勳")};
+	  ArrayList<Goods> arrayBooks = new ArrayList<Goods>();
+	  for(Book b: books) arrayBooks.add(b);
+	  System.out.println(v.rentView(arrayBooks).toString());
   }
 
   public String[] certificationView() {
@@ -83,33 +87,44 @@ public class View {
     return str;
   }
 
-  public String rentView(ArrayList<Goods> items) {
+  public Goods rentView(ArrayList<Goods> items) {
 
     goods = new JFrame("Choose goods");
 
     goods.setSize(350, 200);
     goods.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     goods.getContentPane().setLayout(new FlowLayout(FlowLayout.LEFT));
-
-    for (Goods i : items) {
-      JButton a = new JButton(i.toString());
-      a.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          goodName = a.getText();
-          System.out.println(goodName);
-        }
-      });
-      goods.add(a);
+    
+    for (Goods i: items) {
+    	JButton a = new JButton(i.toString());
+    	a.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) {
+  	    	  goodName = a.getText();
+  	    }
+     	});
+    	goods.add(a);
     }
     goods.setVisible(true);
-
-    while (true) {
-      if (!goodName.equals("")) {
-        break;
-      }
+    
+    Goods good = null ;
+    while(true) {
+    	if(!goodName.equals("")) {
+    		for(Goods i:items) {
+    			if(i.toString().equals(goodName)) {
+    				good=i;
+    				break;
+    			}
+    		}
+    		break;
+    	}
+    	try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
     }
-
-    return goodName;
+    
+    return good;
   }
 
   public boolean confirmationView(String Name) {
@@ -176,7 +191,25 @@ public class View {
   }
 
   public void dead() {
+	  JFrame error = new JFrame("Comfirm");
 
+	    // 初始化一个文字区域
+	  JLabel label = new JLabel("Failed");
+	  label.setHorizontalAlignment(JLabel.CENTER);
+	  label.setVerticalAlignment(JLabel.CENTER);
+	  error.add(label, BorderLayout.CENTER);
+	  JButton button = new JButton();
+	  
+	  button.setText("OK");
+	  button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+		    }
+	   	});
+	  error.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	  error.setSize(350, 200);
+	  error.add(button,BorderLayout.SOUTH);
+	  error.setVisible(true);
   }
-
+  
 }
