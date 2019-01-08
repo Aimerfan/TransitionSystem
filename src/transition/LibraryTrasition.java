@@ -1,3 +1,4 @@
+package transition;
 
 import java.util.*;
 
@@ -13,7 +14,7 @@ public class LibraryTrasition extends Transition {
     protected void certification() {
     	do {
     		
-    	}while();
+    	}while(true);
     }
 
 

@@ -1,3 +1,4 @@
+package model;
 
 public class Data {
 	private String Name;

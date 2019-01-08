@@ -1,5 +1,8 @@
+package transition;
 
 import java.util.*;
+
+import model.Borrower;
 
 /**
  * 
